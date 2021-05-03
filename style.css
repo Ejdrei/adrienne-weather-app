@@ -1,4 +1,162 @@
-h1 {
+#body {
+  display: block;
+  margin: 30px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  font-family: "Play", sans-serif;
+}
+
+form {
+  text-align: right;
+  width: 100%;
+  padding-top: 50px;
+  padding-right: 90px;
+}
+
+#city-input {
   text-align: center;
-  color: blueviolet;
+  border-color: white;
+  background-color: black;
+  color: white;
+}
+
+#city-submit {
+  text-align: center;
+  border-color: white;
+  background-color: black;
+  color: white;
+}
+
+#current-button {
+  text-align: center;
+  width: 100px;
+  border-color: white;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  text-align: left;
+  margin-left: 20%;
+  padding: 0;
+  color: white;
+}
+
+h2 {
+  color: white;
+  margin-left: 20%;
+}
+
+#primary-temperature {
+  display: block;
+  margin: 0 auto;
+  line-height: 200px;
+  text-align: center;
+  height: 200px;
+  width: 200px;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 50%;
+  font-size: 48px;
+  color: white;
+}
+
+.changable-units {
+  text-align: right;
+  padding-right: 35%;
+  font-size: 36px;
+  color: white;
+}
+
+.mid-row {
+  text-align: center;
+  color: white;
+  padding-top: 5px;
+}
+
+.days-row {
+  text-align: center;
+  color: white;
+}
+
+.temperature-row {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.day-one,
+.day-two,
+.day-three,
+.day-four,
+.day-five {
+  display: block;
+  margin: 0 auto;
+  color: white;
+}
+
+.temp-one,
+.temp-two,
+.temp-three,
+.temp-four,
+.temp-five {
+  display: block;
+  margin: 0 auto;
+  line-height: 90px;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 50%;
+  color: white;
+  min-width: 90px;
+}
+
+.block {
+  position: relative;
+  margin: 5px auto;
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 20px;
+}
+
+.glow::before,
+.glow::after {
+  content: " ";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(
+    45deg,
+    #e6fb04,
+    orange,
+    #ff00ff,
+    #ff0099,
+    #6e0dd0,
+    #ff3300,
+    #00d9ff
+  );
+  padding: 0px;
+  background-size: 400%;
+  border-radius: 20px;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  z-index: -1;
+  animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    filter: blur(40px);
+  }
+}
+
+.glow::after {
+  filter: blur(20px);
 }

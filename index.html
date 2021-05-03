@@ -1,16 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="script.js" class="js" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Weather Forecast</title>
 </head>
-<body>
-   <h1>
-       Hello
-   </h1>
-   <script src="script.js"></script>
+
+<body id="body">
+    <div class="container">
+        <div class="block glow">
+            <div class="row top-row">
+                <form class="search-form" id="search-form">
+                    <input type="search" placeholder="enter city" autocomplete="off" id="city-input" />
+                    <input type="submit" value="🔍" id="city-submit" />
+                    <input type="submit" value="Current" id="current-button" />
+                </form>
+            </div>
+
+            <h1 id="city">
+                Prague
+            </h1>
+            <h2>
+                Current Time
+            </h2>
+
+            <p class="primary-city" id="primary-temperature">
+                25°
+            </p>
+            <p class="changable-units">
+                <a href="#celcius" id="celcius-link">°C </a>
+                |
+                <a href="#fahrenheit" id="fahrenheit-link">°F</a>
+            </p>
+
+            <div class="row mid-row">
+                <div class="col-6">
+                    <h3 class="wind" id="wind">
+                        Wind
+                    </h3>
+                    <p class="wind-speed"><span id="wind-speed">0</span> km/h</p>
+                </div>
+                <div class="col-6">
+                    <h3 class="humidity" id="humidity">
+                        Humidity
+                    </h3>
+                    <p class="humidity-percentage">
+                        <span id="humidity-percentage">0</span>%
+                    </p>
+                </div>
+            </div>
+
+            <br />
+
+            <span>
+                <div class="row days-row">
+                    <div class="col-2 day-one">
+                        Monday
+                    </div>
+                    <div class="col-2 day-two">
+                        Tuesday
+                    </div>
+                    <div class="col-2 day-three">
+                        Wednesday
+                    </div>
+                    <div class="col-2 day-four">
+                        Thursday
+                    </div>
+                    <div class="col-2 day-five">
+                        Friday
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row temperature-row">
+                    <div class="col-1 temp-one">
+                        Temp
+                    </div>
+                    <div class="col-1 temp-two">
+                        Temp
+                    </div>
+                    <div class="col-1 temp-three">
+                        Temp
+                    </div>
+                    <div class="col-1 temp-four">
+                        Temp
+                    </div>
+                    <div class="col-1 temp-five">
+                        Temp
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
