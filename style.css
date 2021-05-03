@@ -160,3 +160,8 @@ h2 {
 .glow::after {
   filter: blur(20px);
 }
+
+#open-source {
+  text-align: center;
+  color: white;
+}
