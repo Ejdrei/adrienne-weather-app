@@ -79,12 +79,10 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 function convertToCelcius(event) {
   event.preventDefault();
   let primaryTemperatureElement = document.querySelector(
-    "#primary-temperature"
-  );
+    "#primary-temperature");
   let temperature = primaryTemperatureElement.innerHTML;
   primaryTemperatureElement.innerHTML = Math.round(
-    ((temperature - 32) * 5) / 9
-  );
+    ((temperature - 32) * 5) / 9); 
 }
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", convertToCelcius);

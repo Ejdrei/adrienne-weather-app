@@ -12,12 +12,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <video id="videoBG" autoplay muted loop>
+        <source src="videos/beach2.mp4" type="video/mp4">
+    </video>
     <title>Weather Forecast</title>
 </head>
 
 <body id="body">
-    <div class="container">
-        <div class="block glow">
+    <div class="container" id="container">
+        <div class="block">
             <div class="row top-row">
                 <form class="search-form" id="search-form">
                     <input type="search" placeholder="enter city" autocomplete="off" id="city-input" />
@@ -29,6 +32,7 @@
             <h1 id="city">
                 Prague
             </h1>
+
             <h2>
                 Current Time
             </h2>
@@ -101,12 +105,12 @@
                 </div>
             </span>
         </div>
+        <p id="open-source">
+            <a href="https://github.com/Ejdrei/adrienne-weather-app" id="open-source-link">open-source-code</a>
+            by Adrienne Roche
+        </p>
+        <script src="script.js"></script>
     </div>
-    <p id="open-source">
-        <a href="https://github.com/Ejdrei/adrienne-weather-app" >open-source-code</a>
-    by Adrienne Roche
-</p>
-    <script src="script.js"></script>
 </body>
 
 </html>
