@@ -78,18 +78,24 @@ function search(event) {
 //convert to fahrenheit
 function convertToFahrenheit(event) {
   event.preventDefault();
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let primaryTemperatureElement = document.querySelector(
     "#primary-temperature"
   );
+
   let temperature = primaryTemperatureElement.innerHTML;
   primaryTemperatureElement.innerHTML = Math.round((celciusTemperature * 9) / 5 + 32);
 }
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
+
 //convert to celcius
 function convertToCelcius(event) {
   event.preventDefault();
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let primaryTemperatureElement = document.querySelector(
     "#primary-temperature");
   let temperature = primaryTemperatureElement.innerHTML;
