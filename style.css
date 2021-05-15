@@ -99,9 +99,6 @@ h2 {
   cursor: default;
 }
 
-#celcius-link {
-}
-
 #celcius-link:hover {
   text-decoration: none;
   cursor: default;
@@ -120,39 +117,19 @@ h2 {
   padding-top: 5px;
 }
 
-.days-row {
-  text-align: center;
-  color: white;
-}
-
-.temperature-row {
+.weather-forecast {
   text-align: center;
   padding-bottom: 40px;
 }
 
-.day-one,
-.day-two,
-.day-three,
-.day-four,
-.day-five {
-  display: block;
-  margin: 0 auto;
+.weather-forecast-date {
+  font-size: 24px;
   color: white;
 }
 
-.temp-one,
-.temp-two,
-.temp-three,
-.temp-four,
-.temp-five {
-  display: block;
-  margin: 0 auto;
-  line-height: 90px;
-  border-width: 3px;
-  border-style: solid;
-  border-radius: 50%;
+.weather-forecast-temperatures {
+  font-size: 20px;
   color: white;
-  min-width: 90px;
 }
 
 #open-source {
