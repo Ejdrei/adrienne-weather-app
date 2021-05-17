@@ -1,3 +1,36 @@
+//show primary weather
+function displayWeatherCondition(response) {
+  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#primary-temperature").innerHTML = `${Math.round(
+    response.data.main.temp
+  )}°C`;
+
+  document.querySelector("#humidity-percentage").innerHTML =
+    response.data.main.humidity;
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+
+  //weather description
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+
+  //weather icon
+   let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  celciusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
+}
+
+
+let apiKey = "d62ca600ff575150d729106a04fd5155";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=d62ca600ff575150d729106a04fd5155&units=metric`;
+axios.get(apiUrl).then(displayWeatherCondition);
+
 function searchCity(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#city");
@@ -39,35 +72,6 @@ let month = months[now.getMonth()];
 
 h2.innerHTML = `${day}, ${date} ${month}, ${year} ${hours}:${minutes}`;
 
-//show primary weather
-function displayWeatherCondition(response) {
-  console.log(response.data.daily);
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#primary-temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
-
-  document.querySelector("#humidity-percentage").innerHTML =
-    response.data.main.humidity;
-  document.querySelector("#wind-speed").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-
-  //weather description
-  let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = response.data.weather[0].description;
-
-  //weather icon
-   let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-
-  celciusTemperature = response.data.main.temp;
-
-  getForecast(response.data.coord);
-}
-
 //search city
 function search(event) {
   event.preventDefault();
@@ -77,38 +81,20 @@ function search(event) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
-//convert to fahrenheit
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  celciusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let primaryTemperatureElement = document.querySelector(
-    "#primary-temperature"
-  );
-
-  let temperature = primaryTemperatureElement.innerHTML;
-  primaryTemperatureElement.innerHTML = Math.round((celciusTemperature * 9) / 5 + 32);
+//default city search
+function displayTemperature(response) {
+let descriptionElement = document.querySelector("#description"); 
+let temperatureElement= document.query("#primary-temperature");
+let cityElement = document.querySelector("#city");
+temperatureElement.innerHTML = Math.round(response.data.main.temp);
+cityElement.innerHTML = response.data.name;
+descriptionElement.innerHTML = response.data.weather[0].description;
 }
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-
-//convert to celcius
-function convertToCelcius(event) {
-  event.preventDefault();
-  celciusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let primaryTemperatureElement = document.querySelector(
-    "#primary-temperature");
-  let temperature = primaryTemperatureElement.innerHTML;
-  primaryTemperatureElement.innerHTML = Math.round(celciusTemperature); 
-}
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", convertToCelcius);
 
 let celciusTemperature = null;
 
-//current location
+//search location
 function searchLocation(position) {
   let apiKey = "d62ca600ff575150d729106a04fd5155";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=d62ca600ff575150d729106a04fd5155&units=metric`;
@@ -158,8 +144,7 @@ function displayForecast(response) {
                                ${Math.round(forecastDay.temp.min)}° 
                             </span>
                         </div>
-          </div>
-  `;
+          </div>`;
   }
   });
 
