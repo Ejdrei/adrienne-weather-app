@@ -41,7 +41,7 @@ h2.innerHTML = `${day}, ${date} ${month}, ${year} ${hours}:${minutes}`;
 
 //show primary weather
 function displayWeatherCondition(response) {
-  console.log(response.data);
+  console.log(response.data.daily);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#primary-temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -64,6 +64,8 @@ function displayWeatherCondition(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
   celciusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 //search city
@@ -133,37 +135,39 @@ function formatDay(timestamp) {
 
 //weather forecast
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function(day) {
+  forecast.forEach(function(forecastDay, index) {
+    if (index < 6) {
     forecastHTML =
       forecastHTML +
       ` <div class="col-2">
                         <div class="weather-forecast-date">
-                            Thu
+                            ${formatDay(forecastDay.dt)}
                         </div>
-                        <img src="https://openweathermap.org/img/wn/50d@2x.png" alt"" width="90" />
+                        <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt"" width="90" />
                         <div class="weather-forecast-temperatures">
                             <span class="weather-forecast-temperature-max">
-                                18°
+                                ${Math.round(forecastDay.temp.max)}° 
                             </span>
                             <span class="weather-forecast-temperature-min">
-                                12°
+                               ${Math.round(forecastDay.temp.min)}° 
                             </span>
                         </div>
           </div>
   `;
-  })
+  }
+  });
 
 forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
 }
-
+//getting weather forecast
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "d62ca600ff575150d729106a04fd5155";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=d62ca600ff575150d729106a04fd5155&units=metric`;
   axios.get(apiUrl).then(displayForecast);
