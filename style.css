@@ -82,36 +82,6 @@ h2 {
   float: left;
 }
 
-#primary-temperature {
-  height: 90px;
-  text-align: center;
-  font-size: 90px;
-  color: white;
-  margin: 0;
-  line-height: 50px;
-}
-
-.changable-units .active {
-  color: white;
-}
-
-#fahrenheit-link:hover {
-  text-decoration: none;
-  cursor: default;
-}
-
-#celcius-link:hover {
-  text-decoration: none;
-  cursor: default;
-}
-
-.changable-units {
-  text-align: right;
-  padding-right: 35%;
-  font-size: 36px;
-  color: white;
-}
-
 .mid-row {
   text-align: center;
   color: white;
