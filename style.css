@@ -82,6 +82,12 @@ h2 {
   float: left;
 }
 
+#primary-temperature {
+  color: white;
+  text-align: center;
+  font-size: 90px;
+}
+
 .mid-row {
   text-align: center;
   color: white;
